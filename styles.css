@@ -1,4 +1,4 @@
-/* Загальні стилі */
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -16,14 +16,14 @@ ul {
   padding: 0;
 }
 
-/* Контейнер */
+
 .container {
   width: 1200px;
   max-width: 90%;
   margin: 0 auto;
 }
 
-/* ============ HEADER ============ */
+
 .header {
   border-bottom: 1px solid #ececec;
   padding: 20px 0;
@@ -31,7 +31,7 @@ ul {
 
 .header-inner {
   display: flex;
-  justify-content: space-between; /* розділяє на 3 частини: логотип, меню, контакти */
+  justify-content: space-between; 
   align-items: center;
 }
 
@@ -65,7 +65,7 @@ ul {
   font-size: 14px;
 }
 
-/* ============ FILTER BUTTONS ============ */
+
 .filters {
   display: flex;
   justify-content: center;
@@ -89,7 +89,7 @@ ul {
   border-color: #2196f3;
 }
 
-/* ============ PROJECTS GRID ============ */
+
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +98,7 @@ ul {
 }
 
 .project {
-  flex: 0 1 calc(33.333% - 30px); /* 3 в ряд */
+  flex: 0 1 calc(33.333% - 30px); /
   background: #fff;
   border: 1px solid #eee;
   border-radius: 6px;
@@ -115,7 +115,7 @@ ul {
 .project img {
   width: 100%;
   height: 200px;
-  background: #ddd; /* поки що як заглушка */
+  background: #ddd;
   object-fit: cover;
 }
 
@@ -129,7 +129,7 @@ ul {
   margin-bottom: 15px;
 }
 
-/* ============ FOOTER ============ */
+
 .footer {
   background: #2f303a;
   color: rgba(255, 255, 255, 0.8);
