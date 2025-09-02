@@ -108,13 +108,18 @@ ul {
 
 .footer .logo {
   color: #fff;
-}.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* GRID */
-  gap: 30px;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;       /* перехід на новий ряд */
+  gap: 30px;             /* відстань між карточками */
+  justify-content: center;
 }
 
 .project {
+  flex: 1 1 300px;       /* мінімальна ширина 300px */
+  max-width: 370px;      /* щоб не були надто широкі */
   background: #fff;
   border: 1px solid #eee;
   border-radius: 6px;
@@ -144,7 +149,6 @@ ul {
   color: #757575;
   margin-bottom: 15px;
 }
-
 .footer .logo span {
   color: #2196f3;
 }
