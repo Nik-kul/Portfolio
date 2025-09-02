@@ -112,14 +112,14 @@ ul {
 
 .projects {
   display: flex;
-  flex-wrap: wrap;       /* перехід на новий ряд */
-  gap: 30px;             /* відстань між карточками */
+  flex-wrap: wrap;       
+  gap: 30px;            
   justify-content: center;
 }
 
 .project {
-  flex: 1 1 300px;       /* мінімальна ширина 300px */
-  max-width: 370px;      /* щоб не були надто широкі */
+  flex: 1 1 300px;       
+  max-width: 370px;      
   background: #fff;
   border: 1px solid #eee;
   border-radius: 6px;
