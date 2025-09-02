@@ -110,15 +110,7 @@ ul {
   color: #fff;
 }
 
-.projects {
-  display: flex;
-  flex-wrap: wrap;       
-  gap: 30px;            
-  justify-content: center;
-}
-
 .project {
-  flex: 1 1 300px;       
   max-width: 370px;      
   background: #fff;
   border: 1px solid #eee;
