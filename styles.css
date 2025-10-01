@@ -54,28 +54,6 @@ body {
   color: #757575;
 }
 
-.filter-list {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  gap: 10px;
-  margin: 40px 0;
-  padding: 0;
-}
-
-.filters {
-.filter-list {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 50px 0;
-  list-style: none;
-  gap: 10px;
-  margin: 40px 0;
-  padding: 0;
-}
-
-
 .filters {
   display: flex;
   justify-content: center;
@@ -88,15 +66,25 @@ body {
   border: 1px solid #eee;
   border-radius: 4px;
   background: #f5f4fa;
+.filter-list button {
+  padding: 10px 20px;
+  border: none;
   cursor: pointer;
   font-weight: 500;
+  background: #f5f4fa;
+  border-radius: 4px;
 }
 
 .filters button.active,
 .filters button:hover {
+.filter-list button.active,
+.filter-list button:hover {
   background: #2196f3;
   color: #fff;
+  border-color: #2196f3;
 }
+.filter-list button.active,
+.filter-list button:hover {
 
 
 .projects {
