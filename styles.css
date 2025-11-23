@@ -15,6 +15,32 @@ ul {
   margin: 0;
   padding: 0;
 }
+.nav a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+/* Лінія */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #2196f3;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* При наведенні */
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
 
 .container {
   width: 1200px;
