@@ -178,44 +178,35 @@ ul {
 
 /* --- OVERLAY EFFECT FOR PORTFOLIO --- */
 
-.project {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Контейнер для картинки + оверлею */
 .project-thumb {
   position: relative;
   overflow: hidden;
 }
 
-.project-thumb img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
-
-.project-overlay {
+.overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 40px;
+  inset: 0; /* top:0;right:0;bottom:0;left:0 */
   background: rgba(33, 150, 243, 0.9);
   color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+
   font-size: 18px;
   line-height: 1.6;
+
   opacity: 0;
   transform: translateY(100%);
   transition: 0.4s ease;
 }
 
-
-.project:hover .project-overlay {
+.project:hover .overlay {
   opacity: 1;
   transform: translateY(0);
 }
+
+.overlay p {
+  margin: 0;
+}
+
 
