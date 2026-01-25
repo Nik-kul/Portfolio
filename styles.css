@@ -1,8 +1,15 @@
 /* Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
   color: #212121;
+  overflow-x: hidden; /* підстраховка від горизонтального скролу */
 }
 
 a {
@@ -15,13 +22,52 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Container: Mobile First ===== */
+.container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid #ececec;
+  padding: 16px 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap; /* щоб не вилазило на 320 */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+.logo span {
+  color: #2196f3;
+}
+
+/* Nav underline (залишив твою логіку) */
 .nav a {
   position: relative;
   display: inline-block;
   padding-bottom: 4px;
 }
 
-/* Лінія */
 .nav a::after {
   content: "";
   position: absolute;
@@ -35,52 +81,22 @@ ul {
   transform: translateX(-50%);
 }
 
-/* При наведенні */
 .nav a:hover::after,
 .nav a.active::after {
   width: 100%;
 }
 
-
-.container {
-  width: 1200px;
-  max-width: 90%;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-/* Header */
-.header {
-  border-bottom: 1px solid #ececec;
-  padding: 20px 0;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 26px;
-  font-weight: 700;
-  color: #000;
-}
-
-.logo span {
-  color: #2196f3;
-}
-
-/* Nav + contacts */
+/* ===== Mobile: nav + contacts переносами ===== */
 .nav {
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .nav a {
   font-weight: 500;
   color: #212121;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover,
@@ -90,35 +106,37 @@ ul {
 
 .contacts {
   display: flex;
-  gap: 40px;
+  flex-wrap: wrap;
+  gap: 12px;
   font-size: 14px;
 }
 
 .contacts a {
   color: #757575;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
 
 .contacts a:hover {
   color: #2196f3;
 }
 
-/* Filters row */
+/* ===== Filters: Mobile First ===== */
 .filters {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 30px 0;
+  justify-content: flex-start; /* на мобілці зручніше так */
 }
 
 .filters button {
-  padding: 10px 20px;
+  padding: 8px 18px;
   border: 1px solid #eee;
   border-radius: 4px;
   background: #f5f4fa;
   cursor: pointer;
   font-weight: 500;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 .filters button:hover,
@@ -128,10 +146,10 @@ ul {
   border-color: #2196f3;
 }
 
-/* Projects grid */
+/* ===== Projects grid: Mobile First ===== */
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr; /* 320+ = 1 колонка */
   gap: 30px;
   padding: 0;
 }
@@ -142,7 +160,7 @@ ul {
   border: 1px solid #eee;
   border-radius: 6px;
   overflow: hidden;
-  transition: transform .3s, box-shadow .3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -153,14 +171,45 @@ ul {
   box-shadow: 0 4px 20px rgba(0,0,0,.1);
 }
 
+/* thumb + overlay */
+.project-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
 .project img {
   width: 100%;
-  height: 200px;           
+  height: 200px;
   object-fit: cover;
-  display: block;
   background: #ddd;
 }
 
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(33, 150, 243, 0.9);
+  color: white;
+  padding: 20px; /* менше на мобілці */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.6;
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.project:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlay p {
+  margin: 0;
+}
+
+/* text */
 .project h3 {
   font-size: 18px;
   margin: 15px 20px 5px;
@@ -181,58 +230,56 @@ ul {
 .footer .logo { color: #fff; }
 .footer .logo span { color: #2196f3; }
 
-.footerdiv {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 15px;
+/* ======================
+   Breakpoints (required)
+   480 / 768 / 1200
+====================== */
+
+@media screen and (min-width: 480px) {
+  .container { max-width: 480px; }
+  .filters { justify-content: center; } /* на 480 вже можна центрувати */
 }
 
-.foot-adress {
-  font-style: normal;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 10px;
+/* 768px+ */
+@media screen and (min-width: 768px) {
+  .container { max-width: 768px; }
+
+  .header-inner {
+    flex-wrap: nowrap;
+  }
+
+  .nav {
+    gap: 40px;
+  }
+
+  .contacts {
+    gap: 40px;
+  }
+
+  .filters {
+    margin: 40px 0;
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 колонки */
+  }
 }
 
-.foot-adress a {
-  color: rgba(255,255,255,.6);
-  text-decoration: none;
+/* 1200px+ */
+@media screen and (min-width: 1200px) {
+  .container { max-width: 1200px; }
+
+  .projects {
+    grid-template-columns: repeat(3, 1fr); /* desktop: 3 колонки */
+  }
+
+  .overlay {
+    padding: 40px;
+    font-size: 18px;
+  }
 }
 
-
-/* --- OVERLAY EFFECT FOR PORTFOLIO --- */
-
-.project-thumb {
-  position: relative;
-  overflow: hidden;
+/* ===== Styles only in a range (requirement #4 example) ===== */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .project img { height: 220px; } /* приклад: тільки tablet проміжок */
 }
-
-.overlay {
-  position: absolute;
-  inset: 0; /* top:0;right:0;bottom:0;left:0 */
-  background: rgba(33, 150, 243, 0.9);
-  color: white;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-
-  font-size: 18px;
-  line-height: 1.6;
-
-  opacity: 0;
-  transform: translateY(100%);
-  transition: 0.4s ease;
-}
-
-.project:hover .overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.overlay p {
-  margin: 0;
-}
-
-
