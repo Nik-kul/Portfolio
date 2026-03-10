@@ -1,7 +1,4 @@
-/* =========================
-   Base
-========================= */
-*,
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -31,9 +28,7 @@ img {
   height: auto;
 }
 
-/* =========================
-   Container (mobile first)
-========================= */
+
 .container {
   width: 100%;
   max-width: 480px;
@@ -41,9 +36,6 @@ img {
   padding: 0 15px;
 }
 
-/* =========================
-   Header
-========================= */
 .header {
   border-bottom: 1px solid #ececec;
   padding: 16px 0;
@@ -67,7 +59,7 @@ img {
   color: #2196f3;
 }
 
-/* underline for nav links */
+
 .nav a {
   position: relative;
   display: inline-block;
@@ -92,7 +84,7 @@ img {
   width: 100%;
 }
 
-/* nav + contacts */
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -126,16 +118,12 @@ img {
   color: #2196f3;
 }
 
-/* =========================
-   Portfolio section
-========================= */
+
 .portfolio {
   padding: 60px 0;
 }
 
-/* =========================
-   Filters
-========================= */
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -163,16 +151,14 @@ img {
   box-shadow: 0 3px 10px rgba(33, 150, 243, 0.3);
 }
 
-/* =========================
-   Projects (FLEXBOX instead of GRID)
-========================= */
+
 .projects {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
 }
 
-/* mobile first: 1 item per row */
+
 .project {
   width: 100%;
   background: #fff;
@@ -190,7 +176,7 @@ img {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* thumb + overlay */
+
 .project-thumb {
   position: relative;
   overflow: hidden;
@@ -204,7 +190,7 @@ img {
   background: #ddd;
 }
 
-/* overlay slide-up like макет */
+
 .overlay {
   position: absolute;
   inset: 0;
@@ -227,7 +213,7 @@ img {
   margin: 0;
 }
 
-/* text */
+
 .project h3 {
   font-size: 18px;
   margin: 15px 20px 5px;
@@ -238,9 +224,7 @@ img {
   margin: 0 20px 20px;
 }
 
-/* =========================
-   Footer
-========================= */
+
 .footer {
   background: #2f303a;
   color: rgba(255, 255, 255, 0.8);
@@ -275,11 +259,7 @@ img {
   color: #2196f3;
 }
 
-/* ======================
-   Breakpoints (480 / 768 / 1200)
-====================== */
 
-/* 480px+ */
 @media screen and (min-width: 480px) {
   .container {
     max-width: 480px;
@@ -290,7 +270,7 @@ img {
   }
 }
 
-/* 768px+ */
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 768px;
@@ -316,7 +296,7 @@ img {
     margin-bottom: 50px;
   }
 
-  /* 2 columns */
+
   .project {
     width: calc((100% - 30px) / 2);
   }
@@ -326,7 +306,7 @@ img {
   }
 }
 
-/* 1200px+ */
+
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 1200px;
@@ -336,7 +316,7 @@ img {
     padding: 94px 0;
   }
 
-  /* 3 columns */
+
   .project {
     width: calc((100% - 60px) / 3);
   }
